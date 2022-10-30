@@ -1,7 +1,7 @@
 #수료증 내용을 채운 후 저장하는 코드 만들기
 import docx
 from docx.oxml.ns import qn
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
 doc = docx.Document(r'/workspaces/python_40projects/automation_programs/엑셀의 정보를 불러와 수료증 자동 생성/수료증양식.docx')
 
@@ -24,7 +24,7 @@ run.font.name = '나눔고딕'
 run.bold = True
 run._element.rPr.rFonts.set(qn('w:eastAsia'), '나눔고딕')
 run.font.size = docx.shared.Pt(40)
-para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+para.alignment = WD_PARAGRAPH_ALIGNMENT.center()
 
 para = doc.add_paragraph()
 run = para.add_run('\n\n')
@@ -62,7 +62,7 @@ run = para.add_run('2021.09.19')
 run.font.name = '나눔고딕'
 run._element.rPr.rFonts.set(qn('w:eastAsia'), '나눔고딕')
 run.font.size = docx.shared.Pt(20)
-para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+para.alignment = WD_PARAGRAPH_ALIGNMENT
 
 para = doc.add_paragraph()
 run = para.add_run('\n\n\n')
@@ -71,6 +71,6 @@ run.font.name = '나눔고딕'
 run.bold = True
 run._element.rPr.rFonts.set(qn('w:eastAsia'), '나눔고딕')
 run.font.size = docx.shared.Pt(20)
-para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+para.alignment = WD_PARAGRAPH_ALIGNMENT
 
 doc.save(r'/workspaces/python_40projects/automation_programs/엑셀의 정보를 불러와 수료증 자동 생성/수료증결과.docx')
